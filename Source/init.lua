@@ -1,3 +1,3 @@
-dofile("wifiConn.lua")
+weather = require("weather")
 
-dofile("server.lua")
+weather.update();
