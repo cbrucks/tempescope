@@ -95,12 +95,11 @@
 </style>
 </head>
 <body>
-
 <div class="Absolute-Center">
     <div class="Parent">
         <div class="Child">
             <h2 class="Title">WiFi Connection</h2>
-            <form id="WiFiConnection" action="form_action.asp">
+            <form id="WiFiConnection" action="update_wifi.asp">
                 <span class="Label">WiFi SSID</span><select class="Input" id="ssid" name="ssid">
                                                       <option value="ssid0">SSID 0</option>
                                                       <option value="ssid1">SSID 1</option>
@@ -108,30 +107,29 @@
                                                       <option value="ssid3">SSID 3</option>
                                                     </select></br>
                 <span class="Label">Password</span><input class="Input" id="pass" type="password" name="password" value="">
-                <input class="Button" type="button" name="WiFiUpdate" onclick="updateWiFi()" value="Update">
+                <input class="Button" type="submit" value="Update">
                 <div style="clear: both;"></div>
             </form>
         </div>
         
         <div class="Child">
             <h2 class="Title">Configuration</h2>
-            <form id="Configuration" action="form_action.asp">
-                
+            <form id="Configuration" action="update_conf.asp">
                 <span class="Label">Zip Code</span><input class="Input" id="zip" type="text" name="zip" value="" min="10000" max="99999">
                 <span class="Label">Brightness %</span><input class="Input" id="lum" type="number" name="brightness" onclick="" value="100" min="0" max="100">
                 <span class="Label">Volume %</span><input class="Input" id="vol" type="number" name="volume" onclick="" value="100" min="0" max="100">
-                <input class="Button" type="button" name="ConfigurationUpdate" onclick="updateConfiguration()" value="Update">
+                <input class="Button" type="submit" value="Update">
                 <div style="clear: both;"></div>
             </form>
         </div>
         
         <div class="Child">
             <h2 class="Title">Test</h2>
-            <form id="Test" action="form_action.asp">
-                <input class="Button" type="button" name="TriggerRain"      onclick="testRain()" value="Rain">
-                <input class="Button" type="button" name="TriggerClouds"    onclick="testClouds()" value="Clouds">
-                <input class="Button" type="button" name="TriggerFog"       onclick="testFog()" value="Fog">
-                <input class="Button" type="button" name="TriggerLightning" onclick="testLightning()" value="Lightning">
+            <form id="Test" action="test.asp">
+                <input class="Button" type="submit" name="effect" value="Rain">
+                <input class="Button" type="submit" name="effect" value="Clouds">
+                <input class="Button" type="submit" name="effect" value="Fog">
+                <input class="Button" type="submit" name="effect" value="Lightning">
                 <div style="clear: both;"></div>
             </form>
         </div>
@@ -140,35 +138,6 @@
 
 <script>
 function updateWiFi() {
-    var ssidElem = document.getElementById("ssid");
-    var ssidName = ssidElem.options[ssidElem.selectedIndex].innerHTML;
-    var pass = document.getElementById("pass").value;
-
-    console.log("Attempting to connect to : " + ssidName);
-}
-
-function updateConfiguration() {
-    var zip = document.getElementById("zip").value;
-    var lum = document.getElementById("lum").value;
-    var vol = document.getElementById("vol").value;
-
-    console.log("Changing configuration to: ZipCode - " + zip + ", Brightness % - " + lum + ", Volume % - " + vol);
-}
-
-function testRain() {
-    console.log("Testing Rain");
-}
-
-function testClouds() {
-    console.log("Testing Clouds");
-}
-
-function testFog() {
-    console.log("Testing Fog");
-}
-
-function testLightning() {
-    console.log("Testing Lightning");
 }
 </script>
 
